@@ -42,7 +42,16 @@ app.use(passport.session());
 /** ---------- ROUTES ---------- **/
 app.use('/auth', auth);
 app.use('/private', isLoggedIn, private);
-app.use('/', index);
+app.use('/login', index);
+app.use('/', isLoggedIn, index);
+
+app.get('/loginStatus', function(req, res){
+  res.send(req.isAuthenticated());
+});
+
+app.use('/*', isLoggedIn, index);
+
+
 /** ---------- SERVER START ---------- **/
 app.listen(3000, function () {
   console.log('Now running on port ', 3000);

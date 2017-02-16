@@ -1,13 +1,21 @@
 <!-- Consider this the main view -->
-<h2>Login Page</h2>
+<h1>Dungeoneer's Pack</h1>
+
 <!-- Shown for users that are NOT logged in -->
 <section ng-hide="auth.loggedIn">
+<h2>Who Goes There Traveller?</h2>
   <!-- I got this button image from Googles sign-in button brand guidelines page -->
-  <a href= "/auth/google"><img src="/public/assets/btn_google_signin_dark_normal_web.png" /></a>
+  <a href= "/auth/google" target="_self"><img src="/public/assets/btn_google_signin_dark_normal_web.png" /></a>
 </section>
 <!-- Shown for users that are logged in -->
 <section ng-show="auth.loggedIn">
   <p>
     You are logged in!
   </p>
+  <ul>
+    <li><a href="#roll">Roll Some Dice</a></li>
+    <li><a href="#charSheet">Character Sheet</a></li>
+    <li><a href="#spellbook">Spellbook</a></li>
+    <li><a href="#" ng-click="auth.logout()" >Logout</a></li>
+  </ul>
 </section>

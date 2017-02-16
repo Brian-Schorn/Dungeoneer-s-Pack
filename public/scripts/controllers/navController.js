@@ -1,4 +1,5 @@
-googleAuthApp.controller('NavController', function (AuthFactory, $window) {
+dungeonPackApp.controller('NavController', function (AuthFactory, $window) {
+  console.log('loaded NavController');
   var _this = this;
   var authFactory = AuthFactory;
   _this.displayLogout = false; // should we display the logout option on the DOM?
@@ -12,6 +13,7 @@ googleAuthApp.controller('NavController', function (AuthFactory, $window) {
     if (response.data.status) {
       _this.displayLogout = true;
       authFactory.setLoggedIn(true);
+      console.log("authFactory.isLoggedIn:", response.data);
       _this.username = response.data.name;
     } else { // is not logged in on server
       _this.displayLogout = false;

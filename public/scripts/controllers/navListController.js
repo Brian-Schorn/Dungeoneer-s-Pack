@@ -1,5 +1,5 @@
-dungeonPackApp.controller('AuthController', function (AuthFactory, $window) {
-  console.log('loaded AuthController');
+dungeonPackApp.controller('navListController', function (AuthFactory, $http, $window) {
+  console.log('loaded navListController');
   var _this = this;
   var authFactory = AuthFactory;
   _this.loggedIn = authFactory.checkLoggedIn(); // NOTE: only updated on page load
@@ -18,4 +18,7 @@ dungeonPackApp.controller('AuthController', function (AuthFactory, $window) {
         _this.message.type = 'error';
       });
   };
+
+
+
 });

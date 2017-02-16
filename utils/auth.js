@@ -11,7 +11,8 @@ module.exports = function (req, res, next) {
     return next();
   } else {
     // if user is not authenticated, send an error message
-    res.json({ err: 'User is not authenticated' });
+    console.log("User is not authenticated, redirecting to login page");
+    res.redirect('/login');
   }
 
 };
