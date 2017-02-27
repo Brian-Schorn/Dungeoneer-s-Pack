@@ -1,4 +1,4 @@
-dungeonPackApp.controller('spellController', function (AuthFactory, $http, $window) {
+dungeonPackApp.controller('spellController', function (AuthFactory, $http, $window, $sce) {
   console.log('loaded spellController');
   var _this = this;
   var authFactory = AuthFactory;
@@ -19,6 +19,7 @@ dungeonPackApp.controller('spellController', function (AuthFactory, $http, $wind
       });
   };
 
+//Retrieves all spells from database
   _this.getAll = function(){
   $http.get('/spell/all').then(function (response) {
     console.log("Got a response from the DB", response.data);
@@ -29,6 +30,29 @@ dungeonPackApp.controller('spellController', function (AuthFactory, $http, $wind
   });
 };
 
+//Brings up spell description
+_this.moreInfo = function(spellInfo){
+  _this.focusSpell = {};
+  console.log("Clicked:", spellInfo.name);
+  _this.focusSpell = spellInfo
+  _this.focusSpell.desc = $sce.trustAsHtml(spellInfo.desc);
+  if(spellInfo.higher_level){
+    _this.focusSpell.higher_level = $sce.trustAsHtml(spellInfo.higher_level);
+  }
+}
+
+
+_this.reset = function(){
+  _this.focusSpell = null;
+  _this.search = '';
+  _this.searchSchool = '';
+  delete _this.searchDomain;
+  _this.searchClass = '';
+  _this.searchLevel = '';
+  _this.getAll();
+
+}
+//Display all spells on load
   _this.getAll();
 
 

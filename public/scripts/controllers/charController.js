@@ -20,5 +20,30 @@ dungeonPackApp.controller('charController', function (AuthFactory, $http, $windo
   };
 
 
+  _this.getAll = function(){
+  $http.get('/journal/all').then(function (response) {
+    console.log("Got a response from the DB", response.data);
+    _this.journalList = response.data;
+    return response.data;
+  }).catch(function(err) {
+    console.log('Error getting info from DB', err);
+  });
+  };
+
+  _this.reset = function() {
+    _this.newEntry = '';
+  }
+
+  _this.submit = function(entry) {
+    newEntry = {};
+    newEntry.entry = entry;
+    newEntry.date = new Date;
+    $http.post('/journal', newEntry);
+    _this.newEntry = '';
+    _this.getAll();
+    
+  }
+
+  _this.getAll();
 
 });

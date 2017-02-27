@@ -14,5 +14,5 @@ Roll the Dice and Determine Your Fate!
 <input type="number" ng-model="roll.die.mod" ng-init="roll.die.mod = 0" />
 <button ng-click="roll.modDown()"><span class="glyphicon glyphicon-minus"></span></button>
 <br />
-<span ng-show="roll.showResults">You rolled {{roll.input}}+{{roll.die.mod}}: <strong>{{roll.result}}</strong> | {{roll.details}} + {{roll.die.mod}}</span>
+<span ng-show="roll.showResults">You rolled {{roll.input}}+{{roll.modifier}}: <strong>{{roll.result}}</strong> | {{roll.details}} + {{roll.modifier}}</span>
 <button ng-show="roll.showResults" ng-click="roll.reset()">Reset</button>

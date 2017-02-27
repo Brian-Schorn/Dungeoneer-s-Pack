@@ -1,6 +1,124 @@
-Spellbook Page
-<ul>
-  <li ng-repeat="singleSpell in spell.spellList">
-    {{singleSpell.name}}
-  </li>
+<span class="twleve columns">Spellbook Page</span>
+
+
+<div id="searchParams" class="four columns">
+
+Search By Name
+<input type="text" ng-model="spell.search" />
+<br />
+Search by Class
+<select ng-model="spell.searchClass" ng-dropdown>
+  <option ng-option value=''></option>
+  <option ng-option value='Bard'>Bard</option>
+  <option ng-option value='Druid'>Druid</option>
+  <option ng-option value='Sorcerer'>Sorcerer</option>
+  <option ng-option value='Wizard'>Wizard</option>
+  <option ng-option value='Ranger'>Ranger</option>
+  <option ng-option value='Cleric'>Cleric</option>
+</select>
+<br />
+Search by Level
+<select ng-model="spell.searchLevel" ng-dropdown>
+  <option ng-option value=''></option>
+  <option ng-option value='Cantrip'>Cantrip</option>
+  <option ng-option value='1st-level'>1st</option>
+  <option ng-option value='1st-level'>1st</option>
+  <option ng-option value='2nd-level'>2nd</option>
+  <option ng-option value='3rd-level'>3rd</option>
+  <option ng-option value='4th-level'>4th</option>
+  <option ng-option value='5th-level'>5th</option>
+  <option ng-option value='6th-level'>6th</option>
+  <option ng-option value='7th-level'>7th</option>
+  <option ng-option value='8th-level'>8th</option>
+  <option ng-option value='9th-level'>9th</option>
+
+</select>
+<br />
+Search by School
+<select ng-model="spell.searchSchool" ng-dropdown>
+  <option ng-option value=''></option>
+  <option ng-option value='Abjuration'>Abjuration</option>
+  <option ng-option value='Conjuration'>Conjuration</option>
+  <option ng-option value='Divination'>Divination</option>
+  <option ng-option value='Enchantment'>Enchantment</option>
+  <option ng-option value='Evocation'>Evocation</option>
+  <option ng-option value='Illusion'>Illusion</option>
+  <option ng-option value='Necromancy'>Necromancy</option>
+  <option ng-option value='Transmutation'>Transmutation</option>
+</select>
+<br />
+Search by Domain
+<select ng-model="spell.searchDomain" ng-dropdown>
+  <option ng-option value=''></option>
+  <option ng-option value='Air'>Air</option>
+  <option ng-option value='Animal'>Animal</option>
+  <option ng-option value='Chaos'>Chaos</option>
+  <option ng-option value='Death'>Death</option>
+  <option ng-option value='Destruction'>Destruction</option>
+  <option ng-option value='Earth'>Earth</option>
+  <option ng-option value='Evil'>Evil</option>
+  <option ng-option value='Fire'>Fire</option>
+  <option ng-option value='Good'>Good</option>
+  <option ng-option value='Healing'>Healing</option>
+  <option ng-option value='Knowledge'>Knowledge</option>
+  <option ng-option value='Law'>Law</option>
+  <option ng-option value='Life'>Life</option>
+  <option ng-option value='Luck'>Luck</option>
+  <option ng-option value='Magic'>Magic</option>
+  <option ng-option value='Plant'>Plant</option>
+  <option ng-option value='Protection'>Protection</option>
+  <option ng-option value='Strength'>Strength</option>
+  <option ng-option value='Sun'>Sun</option>
+  <option ng-option value='Travel'>Travel</option>
+  <option ng-option value='Trickery'>Trickery</option>
+  <option ng-option value='War'>War</option>
+  <option ng-option value='Water'>Water</option>
+</select>
+<br />
+<button ng-click="spell.reset()">Reset</button>
+</div>
+
+<div id="SpellListArea" class="four columns">
+  <div>
+    <button ng-repeat="singleSpell in spell.spellList | filter:{name: spell.search, class: spell.searchClass, level: spell.searchLevel, school: spell.searchSchool, domains: spell.searchDomain} as results" ng-click="spell.moreInfo(singleSpell)">
+      {{singleSpell.name}}
+    </button>
+      </div>
+</div>
+
+<div id="SpellDescriptionArea" class="four columns">
+  <ul ng-show="spell.focusSpell.name">
+
+  <li><strong>{{spell.focusSpell.name}}</strong></li>
+  <li><strong>Description:</strong></li>
+  <div ng-bind-html="spell.focusSpell.desc"></div>
+  <li ng-show="spell.focusSpell.higher_level"><strong>Higher Level:</strong></li>
+  <div ng-bind-html="spell.focusSpell.higher_level"></div>
+  <li ng-show="spell.focusSpell.page"><strong>Page: </strong>{{spell.focusSpell.page}}</li>
+  <li ng-show="spell.focusSpell.range"><strong>Range: </strong>{{spell.focusSpell.range}}</li>
+  <li ng-show="spell.focusSpell.components"><strong>components: </strong>{{spell.focusSpell.components}}</li>
+  <li ng-show="spell.focusSpell.material"><strong>material: </strong>{{spell.focusSpell.material}}</li>
+  <li ng-show="spell.focusSpell.ritual"><strong>ritual: </strong>{{spell.focusSpell.ritual}}</li>
+  <li ng-show="spell.focusSpell.duration"><strong>duration: </strong>{{spell.focusSpell.duration}}</li>
+  <li ng-show="spell.focusSpell.concentration"><strong>concentration: </strong>{{spell.focusSpell.concentration}}</li>
+  <li ng-show="spell.focusSpell.casting_time"><strong>casting_time: </strong>{{spell.focusSpell.casting_time}}</li>
+  <li ng-show="spell.focusSpell.level"><strong>level: </strong>{{spell.focusSpell.level}}</li>
+  <li ng-show="spell.focusSpell.school"><strong>school: </strong>{{spell.focusSpell.school}}</li>
+  <li ng-show="spell.focusSpell.class"><strong>class: </strong>{{spell.focusSpell.class}}</li>
+  <li ng-show="spell.focusSpell.level"><strong>level: </strong>{{spell.focusSpell.level}}</li>
+  <li ng-show="spell.focusSpell.domains"><strong>domains: </strong>{{spell.focusSpell.domains}}</li>
+  <li ng-show="spell.focusSpell.archetype"><strong>archetype: </strong>{{spell.focusSpell.archetype}}</li>
+
+
+
+
+
+
 </ul>
+</div>
+
+<div class ="four columns offset-by-four">
+  <p class>
+    Displaying {{results.length}} Spells
+  </p>
+</div>

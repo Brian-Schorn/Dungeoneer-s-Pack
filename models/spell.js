@@ -21,7 +21,8 @@ var spellSchema = mongoose.Schema({
   class: String,
   archetype: String,
   domains: String,
-  patrons: String
+  patrons: String,
+  circles: String
 });
 
 module.exports = mongoose.model('Spell', spellSchema);

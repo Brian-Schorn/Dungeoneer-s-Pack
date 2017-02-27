@@ -7,6 +7,7 @@ var passport = require('./auth/passport');
 var configs = require('./config/auth');
 var index = require('./routes/index');
 var spellStuff = require('./routes/spellStuff');
+var journalStuff = require('./routes/journalStuff');
 var auth = require('./routes/auth');
 var isLoggedIn = require('./utils/auth');
 var private = require('./routes/private/index');
@@ -47,6 +48,7 @@ app.use('/private', isLoggedIn, private);
 app.use('/login', index);
 app.use('/', isLoggedIn, index);
 app.use('/spell', isLoggedIn, spellStuff);
+app.use('/journal', isLoggedIn, journalStuff);
 
 app.get('/loginStatus', function(req, res){
   res.send(req.isAuthenticated());

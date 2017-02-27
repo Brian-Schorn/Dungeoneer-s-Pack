@@ -4,3 +4,43 @@
   bottom: 0;
   width: 100%;
 }
+
+#SpellListArea {
+  height: 75vh;
+  overflow: auto;
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 0px;
+}
+#SpellListArea button {
+  width: 100%;
+}
+#SpellDescriptionArea {
+  height: 75vh;
+  overflow: auto;
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 0px;
+}
+
+#JournalArea {
+  height: 50vh;
+  width: 80vw;
+  overflow: auto;
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 0px;
+}
+
+#JournalAtea li {
+  list-style-type: none;
+  
+}
+#JournalEntry {
+  height: 25vh;
+  width: 80vw;
+}
+
+#SpellDescriptionArea li {
+  list-style-type: none;
+}
