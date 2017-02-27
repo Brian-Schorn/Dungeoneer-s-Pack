@@ -32,4 +32,13 @@ router.post('/', function (req, res) {
     res.sendStatus(201);
   })
 })
+
+router.delete('/:id', function(req, res){
+  Journal.findByIdAndRemove(req.params.id).then(function(err){
+    console.log("Error Deleting: ", err);
+  });
+  res.send(200);
+});
+
+
 module.exports = router;

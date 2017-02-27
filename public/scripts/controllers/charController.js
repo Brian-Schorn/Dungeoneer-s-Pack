@@ -41,9 +41,13 @@ dungeonPackApp.controller('charController', function (AuthFactory, $http, $windo
     $http.post('/journal', newEntry);
     _this.newEntry = '';
     _this.getAll();
-    
+
   }
 
+  _this.deleteEntry = function(id) {
+    console.log("Deleting", id);
+    $http.delete('/journal/' + id).then(_this.getAll());
+  }
   _this.getAll();
 
 });
