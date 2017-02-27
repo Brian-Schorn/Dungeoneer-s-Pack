@@ -6,10 +6,12 @@ var session = require('express-session');
 var passport = require('./auth/passport');
 var configs = require('./config/auth');
 var index = require('./routes/index');
+var spellStuff = require('./routes/spellStuff');
 var auth = require('./routes/auth');
 var isLoggedIn = require('./utils/auth');
 var private = require('./routes/private/index');
 var database = require('./utils/database');
+
 /** ---------- EXPRESS APP CONFIG ---------- **/
 var app = express();
 app.use('/public', express.static('public'));  // serve files from public
@@ -44,6 +46,7 @@ app.use('/auth', auth);
 app.use('/private', isLoggedIn, private);
 app.use('/login', index);
 app.use('/', isLoggedIn, index);
+app.use('/spell', isLoggedIn, spellStuff);
 
 app.get('/loginStatus', function(req, res){
   res.send(req.isAuthenticated());

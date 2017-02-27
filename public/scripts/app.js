@@ -7,22 +7,6 @@ dungeonPackApp.config(['$routeProvider', '$locationProvider', function ($routePr
       templateUrl: '/public/views/templates/navList.html',
       controller: 'navListController',
       controllerAs: 'navList',
-      // resolve: {
-      // _: function ($location,$http) {
-      //       $http.get('/loginStatus').then(function(res){
-      //         console.log('res.data, logged in =',res.data);
-      //         if(res.data){
-      //           console.log('user is logged in');
-      //           return;
-      //         }else {
-      //           console.log('user is not logged in');
-      //           //send them to the login view
-      //           // return false;
-      //           return $location.path('/');
-      //         }
-      //       })
-      //     }
-      //   }
     })
     .when('/login', {
       templateUrl: '/public/views/templates/login.html',

@@ -19,6 +19,19 @@ dungeonPackApp.controller('spellController', function (AuthFactory, $http, $wind
       });
   };
 
+  _this.getAll = function(){
+  $http.get('/spell/all').then(function (response) {
+    console.log("Got a response from the DB", response.data);
+    _this.spellList = response.data;
+    return response.data;
+  }).catch(function(err) {
+    console.log('Error getting info from DB', err);
+  });
+};
+
+  _this.getAll();
+
+
 
 
 });

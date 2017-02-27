@@ -1,1 +1,18 @@
-Dice Rolling Page
+Roll the Dice and Determine Your Fate!
+<button ng-click="roll.rollIt(4)">D4</button>
+<button ng-click="roll.rollIt(6)">D6</button>
+<button ng-click="roll.rollIt(8)">D8</button>
+<button ng-click="roll.rollIt(10)">D10</button>
+<button ng-click="roll.rollIt(12)">D12</button>
+<button ng-click="roll.rollIt(20)">D20</button>
+<br />Number of Dice to Roll:
+<button ng-click="roll.numberOfUp()"><span class="glyphicon glyphicon-plus"></span></button>
+<input type="number" ng-model="roll.die.numberOf" ng-init="roll.die.numberOf = 1" />
+<button ng-click="roll.numberOfDown()"><span class="glyphicon glyphicon-minus"></span></button>
+<br />Modifier:
+<button ng-click="roll.modUp()"><span class="glyphicon glyphicon-plus"></span></button>
+<input type="number" ng-model="roll.die.mod" ng-init="roll.die.mod = 0" />
+<button ng-click="roll.modDown()"><span class="glyphicon glyphicon-minus"></span></button>
+<br />
+<span ng-show="roll.showResults">You rolled {{roll.input}}+{{roll.die.mod}}: <strong>{{roll.result}}</strong> | {{roll.details}} + {{roll.die.mod}}</span>
+<button ng-show="roll.showResults" ng-click="roll.reset()">Reset</button>
