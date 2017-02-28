@@ -24,6 +24,7 @@ dungeonPackApp.controller('rollController', function (AuthFactory, $http, $windo
     _this.showResults = false;
     _this.die.numberOf = 1;
     _this.die.mod = 0;
+    _this.result = null;
   }
 
   _this.modUp = function() {

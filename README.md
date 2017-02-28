@@ -14,4 +14,6 @@ Dice Rolling: Included is a full fledge Dice rolling application that can simula
 
 Spellbook: Included is a fully detailed and fully searchable D&D 5th Edition Spellbook, details ad nauseum
 
-Journal: Included is a Journal functionality where the user can enter (and delete) journal entries tied to their google log in, to keep track of any important details in their most recent adventure. 
+Journal: Included is a Journal functionality where the user can enter (and delete) journal entries tied to their google log in, to keep track of any important details in their most recent adventure.
+
+Stretch Goals:

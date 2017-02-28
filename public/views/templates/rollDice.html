@@ -1,4 +1,7 @@
-Roll the Dice and Determine Your Fate!
+<div id="diceRollArea">
+
+
+Choose your die
 <button ng-click="roll.rollIt(4)">D4</button>
 <button ng-click="roll.rollIt(6)">D6</button>
 <button ng-click="roll.rollIt(8)">D8</button>
@@ -15,4 +18,6 @@ Roll the Dice and Determine Your Fate!
 <button ng-click="roll.modDown()"><span class="glyphicon glyphicon-minus"></span></button>
 <br />
 <span ng-show="roll.showResults">You rolled {{roll.input}}+{{roll.modifier}}: <strong>{{roll.result}}</strong> | {{roll.details}} + {{roll.modifier}}</span>
-<button ng-show="roll.showResults" ng-click="roll.reset()">Reset</button>
+<br /><span id="bigRoll">{{roll.result}}</span>
+<br /><button ng-show="roll.showResults" ng-click="roll.reset()">Reset</button>
+</div>

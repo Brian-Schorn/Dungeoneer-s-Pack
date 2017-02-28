@@ -3,11 +3,16 @@
   <ul>
     <li ng-repeat="entry in char.journalList | orderBy: '-date'">
       <strong>{{entry.date| date:'yyyy-MM-dd HH:mm:ss'}}</strong><br />{{entry.entry}}
-      <button ng-click="char.deleteEntry(entry._id)"
+      <br />
+      <button ng-click="char.deleteEntry(entry._id)">Forget</button>
     </li>
   </ul>
 </div>
 
 <textarea id="JournalEntry" ng-model="char.newEntry"></textarea>
+<div id="journalButtons">
+
+
 <button ng-click="char.reset()">Clear</button>
 <button ng-click="char.submit(char.newEntry)">Submit</button>
+</div>

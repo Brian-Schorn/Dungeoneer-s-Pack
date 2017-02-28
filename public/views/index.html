@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/public/vendors/mystyle.css" />
   </head>
   <body>
+
     <!-- Bring in the Angular app -->
     <main class="container" ng-app="dungeonPack">
 
@@ -33,10 +34,7 @@
       <div id='footer' ng-controller="NavController as nav">
         <nav>
         <ul class="row">
-          <section id="message" class="nav.message.type" ng-show="nav.message.text">
-            {{nav.message.text}}
-          </section>
-          <li class="two columns" ng-show="nav.displayLogout"><a href="/navList">Home</a></li>
+          <li ng-show="nav.displayLogout"><a href="/navList"><button>Home</button></a></li>
         </ul>
         </nav>
       </div>
